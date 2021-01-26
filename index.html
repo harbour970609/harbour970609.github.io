@@ -79,10 +79,12 @@
 
 
 
+<meta name="description" content="自律即自由">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Harbour的博客">
 <meta property="og:url" content="http://harbour970609.github.io/index.html">
 <meta property="og:site_name" content="Harbour的博客">
+<meta property="og:description" content="自律即自由">
 <meta property="og:locale">
 <meta property="article:author" content="Harbour">
 <meta name="twitter:card" content="summary">
@@ -225,6 +227,142 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://harbour970609.github.io/2021/01/26/Vue%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harbour的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/26/Vue%E9%9D%A2%E8%AF%95/" itemprop="url">VUE面试题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-26T13:36:44+08:00">
+                2021-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、vue的优点"><a href="#一、vue的优点" class="headerlink" title="一、vue的优点"></a>一、vue的优点</h2><p>轻量级框架：只关注视图层，是一个构建数据的视图集合，大小只有几十kb；</p>
+<p>国产框架，中文文档；</p>
+<p>双向数据绑定</p>
+<h2 id="二、组件传值"><a href="#二、组件传值" class="headerlink" title="二、组件传值"></a>二、组件传值</h2><h3 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h3><p>props</p>
+<h3 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h3><p>$emit</p>
+<h2 id="三、v-show与v-if"><a href="#三、v-show与v-if" class="headerlink" title="三、v-show与v-if"></a>三、v-show与v-if</h2><p>共同点：都能控制元素的显示与隐藏。<br>不同点：实现本质不同：v-show是通过控制css中的display属性控制显示与隐藏；v-if是动态地向DOM树内添加或者删除DOM元素，频繁切换比较消耗性能。</p>
+<p>总结：频繁切换使用v-show，否则使用v-if</p>
+<h2 id="四、谈谈你对MVVM开发模式的理解"><a href="#四、谈谈你对MVVM开发模式的理解" class="headerlink" title="四、谈谈你对MVVM开发模式的理解"></a>四、谈谈你对MVVM开发模式的理解</h2><p>MVVM分为Model、View、ViewModel三者。</p>
+<ul>
+<li><strong>Model</strong> 代表数据模型，数据和业务逻辑都在Model层中定义；</li>
+<li><strong>View</strong> 代表UI视图，负责数据的展示；</li>
+<li><strong>ViewModel</strong> 负责监听 <strong>Model</strong> 中数据的改变并且控制视图的更新，处理用户交互操作；</li>
+</ul>
+<p><strong>Model</strong> 和 <strong>View</strong> 并无直接关联，而是通过 <strong>ViewModel</strong> 来进行联系的，<strong>Model</strong> 和 <strong>ViewModel</strong> 之间有着双向数据绑定的联系。因此当 <strong>Model</strong> 中的数据改变时会触发 <strong>View</strong> 层的刷新，<strong>View</strong> 中由于用户交互操作而改变的数据也会在 <strong>Model</strong> 中同步。</p>
+<p>这种模式实现了 <strong>Model</strong> 和 <strong>View</strong> 的数据自动同步，因此开发者只需要专注对数据的维护操作即可，而不需要自己操作 <strong>dom</strong>。</p>
+<h2 id="五、简述Vue的响应式原理"><a href="#五、简述Vue的响应式原理" class="headerlink" title="五、简述Vue的响应式原理"></a>五、简述Vue的响应式原理</h2><p>当一个Vue实例创建时，Vue会遍历data选项的属性，用Object.defineProperty将它们转为getter/setter并且在内部追踪相关依赖，在属性被访问和修改时通知变化。</p>
+<p>每个组件实例都有相应的watcher程序实例，他会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而致使它关联的组件得以更新。</p>
+<h2 id="六、Vue中如何在组件内部实现一个双向数据绑定？"><a href="#六、Vue中如何在组件内部实现一个双向数据绑定？" class="headerlink" title="六、Vue中如何在组件内部实现一个双向数据绑定？"></a>六、Vue中如何在组件内部实现一个双向数据绑定？</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -524,7 +662,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -781,5 +919,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
 </html>
