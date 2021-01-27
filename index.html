@@ -533,65 +533,7 @@
 <li><code>v-html</code> 渲染 html标签 覆盖元素中原有元素内容</li>
 <li><code>v-once</code> 只渲染一次</li>
 <li><code>v-bind</code>: 简写为: 用来绑定数据 可以写合法的js表达式</li>
-<li><code>v-on</code>: 简写为 <code>@</code> 用来点击事件</li>
-</ul>
-<h2 id="三、常用事件修饰符"><a href="#三、常用事件修饰符" class="headerlink" title="三、常用事件修饰符"></a>三、常用事件修饰符</h2><ul>
-<li><code>stop</code> 阻止冒泡 ：外层和里层都有方法 点击里层会产生冒泡，也会触发外层的事件。<br>顺序 从里到外产生事件</li>
-<li><code>prevent</code> 阻止浏览器默认行为 ：<br><code>a</code>标签有浏览器默认行为。</li>
-<li><code>capture</code> 捕获事件 ：点击里层先触发外层再触发里层 顺序从外到里产生事件</li>
-<li><code>self</code> 只触发自己本身的事件 不会产生冒泡和捕获事件 类似于阻止冒泡 但只针对自己那一层 最外层还是会被最里层冒泡冒到 <code>stop</code> 是阻止所有层次</li>
-<li><code>once</code> 事件只执行一次</li>
-</ul>
-<h2 id="四、数据的绑定"><a href="#四、数据的绑定" class="headerlink" title="四、数据的绑定"></a>四、数据的绑定</h2><h3 id="单向绑定-v-bind"><a href="#单向绑定-v-bind" class="headerlink" title="单向绑定 v-bind"></a>单向绑定 <code>v-bind</code></h3><h4 id="v-bind-绑定class-数组语法"><a href="#v-bind-绑定class-数组语法" class="headerlink" title="v-bind 绑定class 数组语法"></a>v-bind 绑定class 数组语法</h4><p>数组语法的含义是:class后面跟的是一个数组。</p>
-<p><strong>用法一</strong>：直接通过[ ]绑定一个类</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">&quot;[&#x27;active&#x27;]&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法二</strong>：也可以传入多个值</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">&quot;[&#x27;active&#x27;, &#x27;line&#x27;]&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法三</strong>：和普通的类同时存在，并不冲突</p>
-<p>注：会有title/active/line三个类</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;[&#x27;active&#x27;, &#x27;line&#x27;]&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>加引号和不加引号的区别：不加引号当成变量去解析，加引号当成字符串去解析。</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;[active, line]&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法四</strong>：如果过于复杂，可以放在一个methods或者computed中</p>
-<p>注：classes是一个计算属性。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;classes&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="v-bind-绑定class-对象语法"><a href="#v-bind-绑定class-对象语法" class="headerlink" title="v-bind 绑定class 对象语法"></a>v-bind 绑定class 对象语法</h4><p><strong>用法一</strong>：直接通过{}绑定一个类</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;&#x27;active&#x27;: isActive&#125;&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法二：</strong>也可以通过判断，传入多个值</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;&#x27;active&#x27;: isActive, &#x27;line&#x27;: isLine&#125;&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法三</strong>：和普通的类同时存在，并不冲突 ，<strong>一般在该属性必须有的情况下，才使用和普通的类同时存在</strong></p>
-<p>注：如果isActive和isLine都为true，那么会有title/active/line三个类</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;&#x27;active&#x27;: isActive, &#x27;line&#x27;: isLine&#125;&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>用法四</strong>：如果过于复杂，可以放在一个methods或者computed中</p>
-<p>注：classes是一个计算属性</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;classes&quot;</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="v-bind绑定style"><a href="#v-bind绑定style" class="headerlink" title="v-bind绑定style"></a>v-bind绑定style</h4><p>我们可以利用v-bind:style来绑定一些CSS内联样式。</p>
-<p>在写CSS属性名的时候，比如<code>font-size</code></p>
-<p>我们可以使用驼峰式 (camelCase) <code>fontSize</code></p>
-<p>或短横线分隔 (kebab-case，记得用单引号括起来) <code>‘font-size’</code></p>
-<p>n绑定class有两种方式：</p>
-<ul>
-<li>对象语法（常用）<ul>
-<li>·<code>:style=&quot;&#123;color: currentColor, fontSize: fontSize + &#39;px&#39;&#125;&quot;</code></li>
-<li>style后面跟的是一个对象类型，对象的key是CSS属性名称，对象的value是具体赋的值，值可以来自于data中的属性。</li>
-</ul>
-</li>
-<li>数组语法（不常用）<ul>
-<li><code>&lt;div v-bind:style=&quot;[baseStyles, overridingStyles]&quot;&gt;&lt;/div&gt;</code></li>
-<li>style后面跟的是一个数组类型，多个值以，分割即可。</li>
-</ul>
-</li>
-</ul>
-<h3 id="双向绑定-v-model-只能用于表单中"><a href="#双向绑定-v-model-只能用于表单中" class="headerlink" title="双向绑定 v-model 只能用于表单中"></a>双向绑定 <code>v-model</code> 只能用于表单中</h3><blockquote>
-<p>tips: 表单元素 <code>radio</code> <code>text</code> <code>address</code> <code>email</code> <code>select</code> <code>checkbox</code> <code>textarea</code></p>
-</blockquote>
-<h2 id="五、v-for的使用"><a href="#五、v-for的使用" class="headerlink" title="五、v-for的使用"></a>五、<code>v-for</code>的使用</h2><h5 id="1-可以遍历-普通数组-对象数组-对象-还可以是数字"><a href="#1-可以遍历-普通数组-对象数组-对象-还可以是数字" class="headerlink" title="1. 可以遍历: 普通数组,对象数组,对象,还可以是数字"></a>1. 可以遍历: 普通数组,对象数组,对象,还可以是数字</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&#x27;(item,key,index) in object&#x27;</span> <span class="attr">:key</span>=<span class="string">&#x27;index&#x27;</span>&gt;</span></span><br><span class="line"> &#123;&#123;item&#125;&#125;--&#123;&#123;key&#125;&#125;--&#123;&#123;index&#125;&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">&#x27;(count in 10)&#x27;</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">12345</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>tips</strong>:在遍历对象的时候有多个<code>index</code>索引,遍历数字时是从1开始的。绑定<code>key</code>时属性值必须是<code>number</code>或者<code>string</code></p>
-</blockquote>
-<p>六、过滤器</p>
-<p>七、计算属性</p>
-<h2 id="六、组件传值"><a href="#六、组件传值" class="headerlink" title="六、组件传值"></a>六、组件传值</h2>
+<li><code>v-on</code>: 简写为 <code>@</code> 用来点击事件
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2021/01/26/Vue%E9%9D%A2%E8%AF%95/#more" rel="contents">
