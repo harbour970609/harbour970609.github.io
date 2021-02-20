@@ -374,8 +374,7 @@
 
       
         
-          
-            <h1 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h1><h3 id="1、calc、support、media各自含义及用法"><a href="#1、calc、support、media各自含义及用法" class="headerlink" title="1、calc、support、media各自含义及用法"></a>1、calc、support、media各自含义及用法</h3><p><strong>calc()</strong> 函数用于动态计算长度值，支持加减乘除运算</p>
+          <h1 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h1><h3 id="1、calc、support、media各自含义及用法"><a href="#1、calc、support、media各自含义及用法" class="headerlink" title="1、calc、support、media各自含义及用法"></a>1、calc、support、media各自含义及用法</h3><p><strong>calc()</strong> 函数用于动态计算长度值，支持加减乘除运算</p>
 <p><strong>@support</strong> 主要用于检测浏览器是否支持CSS的某个属性，其实就是条件判断，如果支持某个属性，你可以写一套样式；如果不支持，可以提供另外一套样式。@support对浏览器版本有要求</p>
 <p><strong>@media</strong> 媒体查询，可以针对不同的媒体类型定义不同的样式，常用于响应式布局</p>
 <h3 id="2、css水平、垂直居中写法"><a href="#2、css水平、垂直居中写法" class="headerlink" title="2、css水平、垂直居中写法"></a>2、css水平、垂直居中写法</h3><p><strong>水平居中：</strong></p>
@@ -383,78 +382,14 @@
 <li>行内元素：<code>text-align: center</code></li>
 <li>块级元素： <code>margin: 0 auto</code></li>
 <li>绝对定位：<code>position: absolute; left: 50%; transform: translateX(-50%)</code></li>
-<li>flex布局： <code>display: flex; justify-content: center</code></li>
-</ul>
-<p><strong>垂直居中：</strong></p>
-<ul>
-<li>行高等于高</li>
-<li>行内块元素：<code>verticle-align:middle；display: inline-block;</code></li>
-<li>绝对定位：<code>position: absolute; top: 50%; transform: translateY(-50%)</code></li>
-<li>flex布局： <code>display: flex; align-items: center</code></li>
-<li>父元素：<code>display:table;</code>子元素：<code>display: table-cell; vertical-align:middle;</code></li>
-</ul>
-<h3 id="3、1rem、1em、1vh、1px各代表什么含义"><a href="#3、1rem、1em、1vh、1px各代表什么含义" class="headerlink" title="3、1rem、1em、1vh、1px各代表什么含义"></a>3、1rem、1em、1vh、1px各代表什么含义</h3><p><strong>rem</strong> 根元素<html>的font-size大小</p>
-<p><strong>em</strong> 子元素字体大小em是父元素font-size大小，如果父元素没有设置则向上查找直到找到为止</p>
-<p>​        子元素的width/height/padding/margin用em表示的话就是相对于该元素的font-size大小</p>
-<p><strong>vw/vh</strong>  视窗的宽度和高度，相当于屏幕宽度和高度的1%，一般处理宽度用%，处理高度用VH</p>
-<p><strong>px</strong> 像素，相对长度单位，相对显示器屏幕分辨率而言的</p>
-<h3 id="4、画一条0-5px的直线"><a href="#4、画一条0-5px的直线" class="headerlink" title="4、画一条0.5px的直线"></a>4、画一条0.5px的直线</h3><p>画一条1px的然后 <code>transform: scale(0.5);</code></p>
-<h3 id="5、盒模型"><a href="#5、盒模型" class="headerlink" title="5、盒模型"></a>5、盒模型</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: content-box 是W3C盒子模型</span><br><span class="line">box-sizing: border-box 是IE盒子模型</span><br></pre></td></tr></table></figure>
-<p>由里向外：content、padding、border、margin</p>
-<p>w3c盒模型： 即默认盒模型（标准盒模型）：width代表content的宽度</p>
-<p>IE盒模型（c3盒模型）：width代表content+border+padding的宽度</p>
-<h3 id="6、画三角形"><a href="#6、画三角形" class="headerlink" title="6、画三角形"></a>6、画三角形</h3><p>宽高设置为0，边框给值，实心，设置边框单边颜色另外三边透明</p>
-<p>锐角三角形</p>
-<p>钝角三角形</p>
-<h3 id="7、清除浮动"><a href="#7、清除浮动" class="headerlink" title="7、清除浮动"></a>7、清除浮动</h3><blockquote>
-<p>BFC（块级格式化上下文），是一个独立的渲染区域。让处于BFC内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响。</p>
-</blockquote>
-<ul>
-<li>额外标签法 </li>
-</ul>
-<p>在最后一个浮动的元素下添加一个标签设置clear：both</p>
-<ul>
-<li>父元素overflow：hidden</li>
-<li>伪元素清除浮动：</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">   <span class="attribute">content</span>:<span class="string">&quot;&quot;</span>;  <span class="comment">/*设置内容为空*/</span></span><br><span class="line">   <span class="attribute">height</span>:<span class="number">0</span>;     <span class="comment">/*高度为0*/</span></span><br><span class="line">   <span class="attribute">line-height</span>:<span class="number">0</span>;   <span class="comment">/*行高为0*/</span></span><br><span class="line">   <span class="attribute">display</span>:block;   <span class="comment">/*将文本转为块级元素*/</span></span><br><span class="line">   <span class="attribute">visibility</span>:hidden;   <span class="comment">/*将元素隐藏*/</span></span><br><span class="line">   <span class="attribute">clear</span>:both;    <span class="comment">/*清除浮动*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">   <span class="attribute">zoom</span>:<span class="number">1</span>;    <span class="comment">/*为了兼容IE*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>双伪元素清除浮动</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>, <span class="selector-class">.clearfix</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">  <span class="attribute">*zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8、属性继承"><a href="#8、属性继承" class="headerlink" title="8、属性继承"></a>8、属性继承</h3><p>当一个属性不是继承属性的时候，我们也可以通过将它的值设置为inherit来使它从父元素那获取同名的属性值来继承。</p>
-<h3 id="9、浏览器兼容性差异"><a href="#9、浏览器兼容性差异" class="headerlink" title="9、浏览器兼容性差异"></a>9、浏览器兼容性差异</h3><p>① 浏览器默认的 margin 和 padding 不同<br>解决：加一个全局 *{ margin: 0; padding: 0; }来统一<br>② 谷歌中文界面下默认会将小于12px 的文本强制按照12px显示<br>解决：使用-webkit-transform:scale(.75);收缩的是整个span盒子大小，这时候，必须将span准换成块元素。<br>③ 超链接访问过后hover样式就不会出现了，被点击访问过的超链接样式不再具有hover 和active 了<br>解决：改变css 属性的排列顺序L-V-H-A</p>
-<p>④ png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.</p>
-<p>⑤ IE下,even对象有x,y属性,但是没有pageX,pageY属性；Firefox下,event对象有pageX,pageY属性,但是没有x,y属性</p>
-<h3 id="10、width-auto-和-width-100-的区别"><a href="#10、width-auto-和-width-100-的区别" class="headerlink" title="10、width: auto 和 width: 100% 的区别"></a>10、<strong>width: auto 和 width: 100% 的区别</strong></h3><p><strong>width: 100%</strong> 会使元素box的宽度等于父元素的contentbox的宽度<br><strong>width: auto</strong> 会时元素撑满整个父元素，margin, border, padding, content 区域会自动分配水平空间</p>
-<h3 id="11、使用base64编码的优缺点"><a href="#11、使用base64编码的优缺点" class="headerlink" title="11、使用base64编码的优缺点"></a>11、使用base64编码的优缺点</h3><p>base64编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，</p>
-<p>在页面上可以用该字符串来替代图片的url属性，一般一些小图标可以使用base64</p>
-<p><strong>优点：</strong></p>
-<p>减少一个图片的HTTP请求</p>
-<p><strong>缺点：</strong></p>
-<p>编码后会比源文件大小大1/3，如果把大图片编码不仅会造成文件体积增加，影响文件的加载速度，还会增加浏览器对html或css文件解析渲染的时间。</p>
-<p>使用base64无法直接缓存，只能缓存包含base64的文件，比如HTML、CSS相比于直接缓存图片的效果要差很多。</p>
-<p>ie8以前的浏览器不支持。</p>
-<h3 id="12、display-none-与-visibility-hidden-的区别"><a href="#12、display-none-与-visibility-hidden-的区别" class="headerlink" title="12、display: none; 与 visibility: hidden; 的区别"></a>12、<strong>display: none; 与 visibility: hidden; 的区别</strong></h3><p>联系：都可以让元素不可见</p>
-<p>区别：</p>
-<p><strong>display：none</strong> 会让元素完全从dom树中消失，渲染的时候不占据任何空间；非继承属性</p>
-<p><strong>visibility：hidden</strong> 不会让元素从树中消失，只是隐藏，继承属性</p>
-<p>修改常规流中元素的<code>display</code>通常会造成文档重排。修改<code>visibility</code>属性只会造成本元素的重绘</p>
-<p><strong>其他隐藏元素的方法：</strong></p>
-<blockquote>
-<p>opacity: 0</p>
-<p>transform: scale(0)</p>
-<p>height: 0; 将元素高度设为 0 ，并消除边框</p>
-<p>filter: blur(0); CSS3属性，将一个元素的模糊度设置为0</p>
-</blockquote>
-<h3 id="13、rgba-和-opacity-的透明效果有什么不同？"><a href="#13、rgba-和-opacity-的透明效果有什么不同？" class="headerlink" title="13、rgba() 和 opacity 的透明效果有什么不同？"></a><strong>13、rgba() 和 opacity 的透明效果有什么不同？</strong></h3><ul>
-<li><p>opacity 作用于元素以及元素内的所有内容（包括文字）的透明度</p>
-</li>
-<li><p>rgba() 只作用于元素自身的颜色或其背景色，子元素不会继承透明效果</p>
-</li>
-</ul>
-
-          
+<li>flex布局： <code>display: flex; justify-content: center</code>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/02/08/CSS%E9%83%A8%E5%88%86/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
