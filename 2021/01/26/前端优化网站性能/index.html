@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="前端如何优化网站性能？减少 HTTP 请求数量在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（不同浏览器允许并发数），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。  CSS Sprites：国">
+<meta name="description" content="前端如何优化网站性能？减少 HTTP 请求数量在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（不同浏览器允许并发数），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端如何优化网站性能？">
 <meta property="og:url" content="http://harbour970609.github.io/2021/01/26/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD/index.html">
 <meta property="og:site_name" content="Harbour的博客">
-<meta property="og:description" content="前端如何优化网站性能？减少 HTTP 请求数量在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（不同浏览器允许并发数），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。  CSS Sprites：国">
+<meta property="og:description" content="前端如何优化网站性能？减少 HTTP 请求数量在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（不同浏览器允许并发数），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-26T07:36:44.000Z">
-<meta property="article:modified_time" content="2021-02-22T08:56:43.707Z">
+<meta property="article:modified_time" content="2021-02-23T05:53:02.276Z">
 <meta property="article:author" content="Harbour">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -378,12 +378,11 @@
 
       
         <h2 id="前端如何优化网站性能？"><a href="#前端如何优化网站性能？" class="headerlink" title="前端如何优化网站性能？"></a>前端如何优化网站性能？</h2><h3 id="减少-HTTP-请求数量"><a href="#减少-HTTP-请求数量" class="headerlink" title="减少 HTTP 请求数量"></a>减少 HTTP 请求数量</h3><p>在浏览器与服务器进行通信时，主要是通过 HTTP 进行通信。浏览器与服务器需要经过三次握手，每次握手需要花费大量时间。而且不同浏览器对资源文件并发请求数量有限（<a target="_blank" rel="noopener" href="http://www.stevesouders.com/blog/2008/03/20/roundup-on-parallel-connections/">不同浏览器允许并发数</a>），一旦 HTTP 请求数量达到一定数量，资源请求就存在等待状态，这是很致命的，因此减少 HTTP 的请求数量可以很大程度上对网站性能进行优化。</p>
+<a id="more"></a>
 <ul>
 <li>CSS Sprites：国内俗称 CSS 精灵，这是将多张图片合并成一张图片达到减少 HTTP 请求的一种解决方案，可以通过 CSS background 属性来访问图片内容。这种方案同时还可以减少图片总字节数。</li>
 <li>合并 CSS 和 JS 文件：现在前端有很多工程化打包工具，如：grunt、gulp、webpack等。为了减少 HTTP 请求数量，可以通过这些工具再发布前将多个 CSS 或者 多个 JS 合并成一个文件。</li>
-<li>采用 lazyLoad：俗称懒加载，可以控制网页上的内容在一开始无需加载，不需要发请求，等到用户操作真正需要的时候立即加载出内容。这样就控制了网页资源一次性请求数量。<a id="more"></a>
-
-</li>
+<li>采用 lazyLoad：俗称懒加载，可以控制网页上的内容在一开始无需加载，不需要发请求，等到用户操作真正需要的时候立即加载出内容。这样就控制了网页资源一次性请求数量。</li>
 </ul>
 <h3 id="控制资源文件加载优先级"><a href="#控制资源文件加载优先级" class="headerlink" title="控制资源文件加载优先级"></a>控制资源文件加载优先级</h3><p>浏览器在加载 HTML 内容时，是将 HTML 内容从上至下依次解析，解析到 link 或者 script 标签就会加载 href 或者 src 对应链接内容，为了第一时间展示页面给用户，就需要将 CSS 提前加载，不要受 JS 加载影响。</p>
 <p>一般情况下都是 CSS 在头部，JS 在底部。</p>
@@ -426,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/26/Vue%E9%9D%A2%E8%AF%95/" rel="next" title="VUE面试题">
-                <i class="fa fa-chevron-left"></i> VUE面试题
+              <a href="/2021/01/26/Vue%E9%9D%A2%E8%AF%95/" rel="next" title="VUE基础">
+                <i class="fa fa-chevron-left"></i> VUE基础
               </a>
             
           </div>
@@ -436,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/02/08/CSS%E9%83%A8%E5%88%86/" rel="prev" title="CSS面试部分">
-                CSS面试部分 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/02/08/CSS%E9%83%A8%E5%88%86/" rel="prev" title="CSS基础">
+                CSS基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
